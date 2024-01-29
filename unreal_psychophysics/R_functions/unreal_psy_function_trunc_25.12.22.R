@@ -1,4 +1,4 @@
-unreal_psy<-function(paths,attempt,sub_n,study_number){
+unreal_psy<-function(folder_names,attempt,sub_n,study){
   
   library(matlabr)
   library(data.table) 
@@ -12,18 +12,17 @@ unreal_psy<-function(paths,attempt,sub_n,study_number){
   library(ggpubr)
   library(formattable)
   library(crayon)
-
+  
+  sub_folder_name
+  results_folder_name
+  input_folder_name<-folder_names[[3]]
   
   #load functions
-  setwd(paths[7])
-  load("name_conditions_and_domains.rda")
-  load("psy_paths.rda")
-  load("threshold_fix.rda")
-  #load("unreal_glm.rda")
+  here("rdas",load("name_conditions_and_domains.rda"))
+  here("rdas",load("threshold_fix.rda"))
   
-  setwd(paths[1])
   #set the filename, always take the file called Answers...something...csv
-  filename_ans<-list.files(paths[1], pattern=glob2rx("Answers*.csv"))
+  here("Studies",study,folder_names[[1]],filename_ans<-list.files(paths[1], pattern=glob2rx("Answers*.csv")))
   #read JND output csv filename
   data<-read.csv(filename_ans);
   
@@ -153,7 +152,7 @@ unreal_psy<-function(paths,attempt,sub_n,study_number){
   
   #add filename, subject and study number columns
   data_cs<- data_cs %>% mutate(Subject = sub_n)
-  data_cs<- data_cs %>% mutate(Study = study_number)
+  data_cs<- data_cs %>% mutate(Study = study)
   data_cs<- data_cs %>% mutate(Filename = filename_ans)
   
   #save a copy of the data so far
@@ -191,7 +190,7 @@ unreal_psy<-function(paths,attempt,sub_n,study_number){
   
   #adding subject and study number columns
   jnd_thresholds<- jnd_thresholds %>% mutate(Subject = sub_n)
-  jnd_thresholds<- jnd_thresholds %>% mutate(Study = study_number)
+  jnd_thresholds<- jnd_thresholds %>% mutate(Study = study)
   jnd_thresholds<- jnd_thresholds %>% mutate(Filename = filename_ans)
   jnd_thresholds<- jnd_thresholds %>% mutate(Level = prob)
   jnd_thresholds$Level[jnd_thresholds$Level==0.25]<-1
