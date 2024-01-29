@@ -12,19 +12,21 @@ unreal_psy<-function(folder_names,attempt,sub_n,study){
   library(ggpubr)
   library(formattable)
   library(crayon)
+  library(rio)
   
   sub_folder_name
   results_folder_name
-  input_folder_name<-folder_names[[3]]
+  input_folder_name<-unlist(folder_names)[3]
   
   #load functions
-  here("rdas",load("name_conditions_and_domains.rda"))
-  here("rdas",load("threshold_fix.rda"))
+  load(here("rdas","name_conditions_and_domains.rda"))
+  load(here("rdas","threshold_fix.rda"))
+  
   
   #set the filename, always take the file called Answers...something...csv
-  here("Studies",study,folder_names[[1]],filename_ans<-list.files(paths[1], pattern=glob2rx("Answers*.csv")))
+  filename_ans<-list.files(here("Studies",study,sub_folder_name), pattern=glob2rx("Answers*.csv"))[1]
   #read JND output csv filename
-  data<-read.csv(filename_ans);
+  data<-import(here("Studies",study,sub_folder_name,filename_ans))
   
   #adding leading zeros to subject number
   sub_n <- stri_sub(paths[1],-3)
