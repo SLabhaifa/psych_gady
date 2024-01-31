@@ -1,4 +1,4 @@
-repeat_list<-function(paths,sub_n,attempt,doAgain){
+repeat_list<-function(folder_names,sub_n,attempt,doAgain,experiment_folder_path){
   
   #This funciton takes the doAgain file...
   #and deletes the conditions that arent there from the retake file
@@ -9,9 +9,9 @@ repeat_list<-function(paths,sub_n,attempt,doAgain){
   # doAgain<-read.csv(doAgain_f,header=TRUE, stringsAsFactors = TRUE);
   
   #retake_template.. contains all possible staircase conditions to choose from
-  setwd(paths[4])
-  retake_f<-"retake_template_unreal_05.csv"
-  retake_main<-read.csv(retake_f,header=FALSE, stringsAsFactors = TRUE);
+  
+  retake_main<-import(here("unreal_random_temps","retake_template_unreal_05.csv"))
+  #retake_main<-read.csv(retake_f,header=FALSE, stringsAsFactors = TRUE);
   colnames(retake_main)[1]<-"conditions"
   calibration_row<-retake_main[1,]
   final_retake<-data.frame()
@@ -26,10 +26,10 @@ repeat_list<-function(paths,sub_n,attempt,doAgain){
   
   
   #cannot compare factors like strings, have to have same levels
-  doAgain$doAgain <- factor(doAgain$doAgain, levels=levels(retake_main$conditions))
+  doAgain$doAgain <- factor(doAgain$doAgain)
   retake_list<-as.list(doAgain$doAgain)  
   
-  #yas queen
+  #if retake list is >0 make repeat file
   if (length(retake_list)>0){
     for (n in retake_list){
       holder<-retake_main[retake_main$conditions==n,]
@@ -39,10 +39,10 @@ repeat_list<-function(paths,sub_n,attempt,doAgain){
     calibration_row<-subset(calibration_row,select=-c(conditions))
     final_retake<-rbind(calibration_row,final_retake)
     final_retake<-head(final_retake, - 1)
-    #setwd("C:\\Users\\User\\Desktop")
-    setwd("C:\\Users\\user\\OneDrive\\Desktop\\Unreal_Experiment\\UnrealData\\Plans\\repeat_JND")
+
+    
     retake_filename<-gsub(" ","",paste("trials_to_repeat_JND_attempt_",attempt,"_sub_",as.character(sub_n),".csv"))
-    fwrite(final_retake,retake_filename,col.names=FALSE)
+    export(final_retake,here(experiment_folder_path,retake_filename),col.names=FALSE)
   }
 }
 

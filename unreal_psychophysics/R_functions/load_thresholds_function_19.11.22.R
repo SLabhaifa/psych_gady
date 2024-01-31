@@ -21,7 +21,12 @@ library(itertools)#?
 library(validate)#?
 
 
-#auto load the random unreal template input csv
+#load the StaircaseCommands template for fmri/eeg
+filename_imaging<-gsub(" ","",paste("unreal_input_",sub_n,".csv"));
+unreal_rt<-import(here("unreal_random_temps",filename))
+  
+
+#load the random unreal template input csv
 filename<-gsub(" ","",paste("unreal_input_",sub_n,".csv"));
 unreal_rt<-import(here("unreal_random_temps",filename))
 

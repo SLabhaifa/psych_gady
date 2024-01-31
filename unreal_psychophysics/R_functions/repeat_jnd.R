@@ -1,4 +1,4 @@
-repeat_jnd<-function(study_number=readline("Study number:")){
+repeat_jnd<-function(study=readline("Study folder name:")){
   
 #{study_number,attempt}
 #you need to run the function and it will prompt you with these questions
@@ -16,33 +16,33 @@ library(stringi)
   
   sub_n<- readline(prompt = "Subject number:");
   attempt<- readline(prompt = "Staircase attempt number:"); 
-  subject_folder<-gsub(" ","",paste("C:\\Users\\User\\OneDrive\\Desktop\\unreal_psychophysics\\unreal_",study_number,"\\sub_",sub_n))
+  sub_folder_name<-paste0("sub_",sub_n)
   
-  setwd("C:\\Users\\User\\OneDrive\\Desktop\\unreal_psychophysics\\rdas")
-  load("psy_paths.rda")
-  load("run_unreal_psy.rda")
-  paths<-psy_paths(subject_folder,attempt,sub_n)
-  subject_folder<-paths[1]
-  psychophysics_folder<-paths[2]
-  output_matlab<-paths[3]
-  unreal_random_temps<-paths[4]
-  results_folder<-paths[5]
-  unreal_input_folder<- paths[6]
-  rda_folder<-paths[7]
+  #setwd("C:\\Users\\User\\OneDrive\\Desktop\\unreal_psychophysics\\rdas")
+  load(here("rdas","psy_paths.rda"))
+  load(here("rdas","run_unreal_psy.rda"))
+  #paths<-psy_paths(subject_folder,attempt,sub_n)
+  #subject_folder<-
+  #psychophysics_folder<-paths[2]
+  #output_matlab<-paths[3]
+  #unreal_random_temps<-paths[4]
+  #results_folder<-paths[5]
+  #unreal_input_folder<- paths[6]
+  #rda_folder<-paths[7]
   
   repeat_number<-as.numeric(attempt)-1;
   
-  setwd(subject_folder)
+  #setwd(subject_folder)
   
 #load the answers csv of the repeated staircases
-repeat_file<-list.files(subject_folder, pattern=glob2rx("*repeat*.csv"));
-repeat_data<-read.csv(file=repeat_file)
-unlink(repeat_file)
+repeat_file<-list.files(here("Studies",study,sub_folder_name), pattern=glob2rx("*repeat*.csv"))[1];
+repeat_data<-import(here("Studies",study,sub_folder_name,repeat_file))
+unlink(here("Studies",study,sub_folder_name,repeat_file))
 
 #load the previous attempt csv (there should be only one attempt file in the folder)
-previous_attempt_file<-list.files(subject_folder, pattern=glob2rx("Answers*.csv"));
-previous_attempt_data<-read.csv(file=previous_attempt_file)
-unlink(previous_attempt_file)
+previous_attempt_file<-list.files(here("Studies",study,sub_folder_name), pattern=glob2rx("Answers*.csv"))[1];
+previous_attempt_data<-import(here("Studies",study,sub_folder_name,previous_attempt_file))
+unlink(here("Studies",study,sub_folder_name,previous_attempt_file))
 
 #make a unique vector of the condition codes used in the repeat TrialNumber column
 repeat_codes<-unique(repeat_data$TrialNumber)
@@ -70,9 +70,9 @@ previous_attempt_file<-stri_sub(previous_attempt_file,1,-5)
 
 #save the new data frame as an 'Answers' file
 filename<-gsub(" ","",paste(previous_attempt_file,"_",as.character(attempt),"_.csv"))
-fwrite(previous_attempt_plus_repeat,filename,col.names=TRUE)
+export(previous_attempt_plus_repeat,here("Studies",study,sub_folder_name,filename),col.names=TRUE)
 
-run_unreal_psy(study_number=study_number,sub_n,attempt)
+run_unreal_psy(study=study,sub_n,attempt)
 }
 
 #save(repeat_jnd, file = 'C:\\Users\\User\\OneDrive\\Desktop\\unreal_psychophysics\\rdas\\repeat_jnd.rda')

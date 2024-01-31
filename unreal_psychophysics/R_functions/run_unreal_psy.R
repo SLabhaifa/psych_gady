@@ -1,5 +1,5 @@
 #Psychophysics analysis & Unreal input creating script
-run_unreal_psy<-function(study=readline("Study folder (unreal_04/unreal_05/fmri) etc..:"),sub_n = readline("Subject number:"),attempt= readline(prompt = "Fitting attempt number:")){
+run_unreal_psy<-function(study=readline("Study folder name:"),sub_n = readline("Subject number:"),attempt= readline(prompt = "Fitting attempt number:")){
 
   library(here)
   library(stringi)
@@ -46,15 +46,18 @@ unreal_psy(folder_names,attempt,sub_n,study)
 
 #place stimuli in empty input file
 load_thresholds(folder_names,sub_n)
-
+load_thresholds_fmri(folder_names,sub_n,study)
 
 #doAgain contains a list of the conditions we need to redo
 load(here("rdas","repeat_jnd.rda"))
-here("output_matlab") 
+
+experiment_folder_path<-here("Unreal_Experiment","UnrealData","Plans","repeat_JND")
+basedir<-here()
+
 doAgain_f<-paste0("doAgain_values_sub_",sub_n,".csv")
-if (file.exists(doAgain_f)){
-  doAgain<-read.csv(doAgain_f,header=TRUE, stringsAsFactors = TRUE);
-  repeat_list(paths,sub_n,attempt,doAgain)
+if (file.exists(here("output_matlab",doAgain_f))){
+  doAgain<-import(here("output_matlab",doAgain_f),header=TRUE, stringsAsFactors = TRUE);
+  repeat_list(folder_names,sub_n,attempt,doAgain,experiment_folder_path)
   } else {cat('\n','No repeats needed','\n')}
 }
 
