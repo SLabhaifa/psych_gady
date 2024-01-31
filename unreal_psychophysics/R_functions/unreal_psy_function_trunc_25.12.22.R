@@ -23,39 +23,24 @@ unreal_psy<-function(folder_names,attempt,sub_n,study){
   load(here("rdas","threshold_fix.rda"))
   
   
-  #set the filename, always take the file called Answers...something...csv
+  #set the filename, always take the file called Answers*
   filename_ans<-list.files(here("Studies",study,sub_folder_name), pattern=glob2rx("Answers*.csv"))[1]
   #read JND output csv filename
   data<-import(here("Studies",study,sub_folder_name,filename_ans))
-  
-  #adding leading zeros to subject number
-  sub_n <- stri_sub(paths[1],-3)
-  
-  #add leading zeros
-  if (nchar(sub_n)==1){
-    sub_n<-paste(rep(0, 1), sub_n, sep = "")
-    sub_n<-paste(rep(0, 1), sub_n, sep = "")
-  }
-  
-  #add leading zeros
-  if (nchar(sub_n)==2){
-    sub_n<-paste(rep(0, 1), sub_n, sep = "")
-  }
   
   #check if this is the first attempt at fitting
   if (attempt == 1){
     data<- data %>% mutate(Attempt = attempt)
   }
   
-  # Rename the file and copy it to the results folder so we know which file was used for these results
-  # Saving the file with an added Attempt column so we can keep track of how many repeated conditions there were
-  setwd(paths[5])
+  # save file for record
+  # add Attempt column so we can keep track of how many repeated conditions there were
   file_rename<-gsub(" ","",paste('Attempt_',as.character(attempt),'_',filename_ans))
-  fwrite(data,file_rename,col.names=TRUE)
+  export(data,here("Studies",study,sub_folder_name,results_folder_name,file_rename))#the file has column names no worries
   
-  #saving the file in the subject's analysis folder so we can attach it to repeat files later
-  setwd(paths[1])
-  fwrite(data,filename_ans,col.names=TRUE)
+  #saving so we can attach to repeat files
+  export(data,here("Studies",study,sub_folder_name,filename_ans))
+  
 
   ######################################## Editing the data frame #########################
   
@@ -63,12 +48,12 @@ unreal_psy<-function(folder_names,attempt,sub_n,study){
   data<-data[!(data$BlockNumber==0),]
   #filter the df so that only staircase rows remain
   filter_questions <-data$QuestionID==88
-  data_b<-data[filter_questions,]
+  data<-data[filter_questions,]
   #filter trials with no answer
-  data_c<-data_b[!(data_b$QuestionResult=="NoAnswerInTime"),]
+  data<-data[!(data$QuestionResult=="NoAnswerInTime"),]
   
   #removing columns we dont need right now
-  data_c<-subset(data_c, select=-c(ProbabilityComment,TimesatmpInitialDirection,InitialDirection,SessionID,Phase,QuestionID,TimeOfVaseHit,NegativeAnswersCount,PositiveAnswersCount,ConvertedValue))
+  data_c<-subset(data, select=-c(ProbabilityComment,TimesatmpInitialDirection,InitialDirection,SessionID,Phase,QuestionID,TimeOfVaseHit,NegativeAnswersCount,PositiveAnswersCount,ConvertedValue))
 
   #rename some df columns
   colnames(data_c)[1]<-"Block"
@@ -85,11 +70,9 @@ unreal_psy<-function(folder_names,attempt,sub_n,study){
   data_c<-data_c%>%mutate(ReversalPoints=QuestionResult)
   #adding condition & domain names
   data_c<-name_conditions_and_domains(data_c)
-  #create a column of run numbers
-  data_c<-data_c %>% group_by(ConditionName) %>% mutate(Run = dense_rank(BlockNumber))
   
-  #reorder the columns so they make sense to us
-  col_order <- c("TrialNumber", "BlockNumber","Run","StepNumber","ConditionCode","ConditionName","Domain",
+  #reorder columns
+  col_order <- c("TrialNumber", "BlockNumber","StepNumber","ConditionCode","ConditionName","Domain",
                  "QuestionResult","ReversalPoints","StairCaseValue","TimeStampStartQuestion","TimestampEndQuestion","ResponseTime","Attempt")
   data_c <- data_c[, col_order]
   #save a data frame of the data so far (data_c)
@@ -114,19 +97,12 @@ unreal_psy<-function(folder_names,attempt,sub_n,study){
   }
   #now the ReversalPoints column represents when a reversal in decision was made.
   
-  ####################################### Which conditions are going to be analyzed/plotted ########################################
-  
-  if (length(unique(as.vector(data_cs$ConditionName)))==9){
-    ConditionName_vec<-c("Grow","Shrink","Delay","Heavy","Light","Fast","Saturated","Unsaturated","Ripple")
-  } else {
-      #in case there are less conditions than usual make a unique vector of condition names for iteration
+  ####################################### Which conditions are going to be analyzed/plotted #################
       ConditionName_vec<-unique(as.vector(data_cs$ConditionName))
       ConditionName_vec<-ConditionName_vec[order(ConditionName_vec)]
-  }
   
   ########################################### Create percent & log of percent columns ##############################################
   
-  #make columns
   data_cs$percent<-data_cs$StairCaseValue
   data_cs$log_percent<-data_cs$StairCaseValue
   data_cs$SCV_abs<-abs(data_cs$StairCaseValue)
@@ -134,7 +110,7 @@ unreal_psy<-function(folder_names,attempt,sub_n,study){
   ########################################### Create a ReversalVal column ##########################################################
   #loop by condition name
   for (z in 1:length(ConditionName_vec)){
-    #we don't consider reversals that happened in the first 4 steps, they are most likley mistakes.
+    #we don't consider reversals that happened in the first 4 steps, they are most likely mistakes.
     data_cs[data_cs$ConditionName==ConditionName_vec[z],]$ReversalPoints[1:4]<-0;
     #calculate percents
     data_cs[data_cs$ConditionName==ConditionName_vec[z],]$percent<- data_cs[data_cs$ConditionName==ConditionName_vec[z],]$SCV_abs/max(data_cs[data_cs$ConditionName==ConditionName_vec[z],]$SCV_abs)*100
@@ -157,40 +133,34 @@ unreal_psy<-function(folder_names,attempt,sub_n,study){
   data_cs<- data_cs %>% mutate(Study = study)
   data_cs<- data_cs %>% mutate(Filename = filename_ans)
   
-  #save a copy of the data so far
   data_cf<-data_cs;
-  
-  ############################################ Arranging data frame for fitting with unreal_fit.m #######################################
   
   #change the answers encoding so we can fit the data
   data_cf$QuestionResult<-(data_cf$QuestionResult-1)*(-1)
   
-  
-  setwd(paths[5])
-  #save data in results folder before fitting
   filename<-gsub(" ","",paste("staircase_values_sub_",as.character(sub_n),".csv"))
-  fwrite(data_cf,filename,col.names=TRUE)
+  export(data_cf,here("Studies",study,sub_folder_name,results_folder_name,filename))
   
-  setwd(paths[2])
+  ############################################ Arranging data frame for fitting with unreal_fit.m #######################################
+
   #adding a marker at the start of the file name so matlab can find this file
   filename<-gsub(" ","",paste("matlab_fitting_file.csv"))
-  fwrite(data_cf,filename,col.names=TRUE)
+  export(data_cf,here(filename))
+  
   
   
   ############################################################## Fit the data ##################################################################
   cat("Matlab is fitting the data","\n")
   run_matlab_script("unreal_fit.m",display=FALSE,verbose=FALSE)
+  
   #load the fitted values from output_matlab
-  setwd(paths[3])
+  
+  
   fitted_file<-gsub(" ","",paste("threshold_values_sub_",sub_n,".csv"))
-  jnd_thresholds<-read.csv(fitted_file,header=TRUE, stringsAsFactors = TRUE);
+  jnd_thresholds<-import(here("output_matlab",fitted_file))
   
   #removing any imaginary parts from the thresholds
   jnd_thresholds$my_thresholds_real<-Re(jnd_thresholds$my_thresholds)
-  
-  #2. make sure fix_thresholds gets what it needs for fixing
-  
-  #adding subject and study number columns
   jnd_thresholds<- jnd_thresholds %>% mutate(Subject = sub_n)
   jnd_thresholds<- jnd_thresholds %>% mutate(Study = study)
   jnd_thresholds<- jnd_thresholds %>% mutate(Filename = filename_ans)
@@ -199,12 +169,13 @@ unreal_psy<-function(folder_names,attempt,sub_n,study){
   jnd_thresholds$Level[jnd_thresholds$Level==0.5]<-2
   jnd_thresholds$Level[jnd_thresholds$Level==0.75]<-3
   jnd_thresholds$Level[jnd_thresholds$Level==0.95]<-4
-  ###########################################################################################
-  
+
   #convert thresholds back from log scale
   jnd_thresholds$jnd_anti_log<-expm1(jnd_thresholds$my_thresholds_real)
+
   #add max_strength column to jnd_thresholds
   jnd_thresholds$max_strength<-jnd_thresholds$my_thresholds_real
+  
   for (e in ConditionName_vec){
     jnd_thresholds[jnd_thresholds$Condition==e,"max_strength"]<-data_cf[data_cf$ConditionName==e,"max_strength"][[1,1]]
     
@@ -229,14 +200,14 @@ unreal_psy<-function(folder_names,attempt,sub_n,study){
   #the fitting function will often provide us with 3rd and 4th level values that are far beyond the 
   #range the subject has seen during the staircase procedure, and that could lead to skewed ratings of the experience.
   
-  threshold_fix(jnd_thresholds,paths,sub_n)
+  threshold_fix(jnd_thresholds,folder_names,sub_n,study)
   
   ######################################## PLOTTING #########################################################
   #using the adjusted threshold file instead of the original in case of adjusted thresholds
   filename_fixed_thresholds<-gsub(" ","",paste("threshold_values_sub_",as.character(sub_n),".csv"))
-
-  setwd(paths[5])#always use adjusted column
-  jnd_adjusted_thresholds<-read.csv(filename_fixed_thresholds,header=TRUE, stringsAsFactors = FALSE);
+  
+  jnd_adjusted_thresholds<-import(here("Studies",study,sub_folder_name,results_folder_name,filename_fixed_thresholds))
+  
   
   #correcting some condition scales
   jnd_adjusted_thresholds$shifted_threshold<-jnd_adjusted_thresholds$adj_stim_val
@@ -260,9 +231,8 @@ unreal_psy<-function(folder_names,attempt,sub_n,study){
   jnd_adjusted_thresholds$max_shifted_strength[jnd_adjusted_thresholds$Condition=='Light'] <- jnd_adjusted_thresholds$max_shifted_strength[jnd_adjusted_thresholds$Condition=='Light']-9.81
   
   #save shifted thresholds in results folder
-  setwd(paths[5])
   filename_th<-gsub(" ","",paste("threshold_values_sub_",as.character(sub_n),".csv"))
-  fwrite(jnd_adjusted_thresholds,filename_th,col.names=TRUE)
+  export(jnd_adjusted_thresholds,here("Studies",study,sub_folder_name,results_folder_name,filename_th))
   
   #return questionresults to factors
   data_cf$QuestionResult<-as.factor(data_cf$QuestionResult)
@@ -412,21 +382,21 @@ unreal_psy<-function(folder_names,attempt,sub_n,study){
   try(Unity_plot_list[[8]]<-Unity_plot_list[[8]]+scale_y_continuous(trans="reverse"),silent=TRUE)
   
 ############################################################################################################################
-  setwd(paths[5])
+
   plot_title <- ggdraw() + draw_label(paste("Subject ",as.character(sub_n)), fontface='bold',x=0,size=14,hjust=-4.75)
   png_title<-gsub(" ","",paste("Psychophysics_Percents_sub_",as.character(sub_n),"_attempt_",attempt,".png"))
   Runs_plot<-cowplot::plot_grid(plotlist = JND_plot_list,nrow=3,ncol=3,rel_heights = c(1,1))
   plot_title_grid<-cowplot::plot_grid(plot_title,Runs_plot,ncol=1,rel_heights=c(0.1,1))
-  ggsave(png_title,width=24,height=20,units="cm",dpi=600,limitsize = FALSE)
-  cat(paste("Subject",sub_n,"staircase procedures plotted as percents are ready"),"\n")
+  ggsave(here("Studies",study,sub_folder_name,results_folder_name,png_title),width = 15,height = 15, units = "cm")
+  cat(paste("Subject",sub_n,"staircases plot 1 done"),"\n")
   
   
   plot_title <- ggdraw() + draw_label(paste("Subject ",as.character(sub_n)), fontface='bold',x=0,size=14,hjust=-4.75)
   png_title<-gsub(" ","",paste("Psychophysics_Unity_sub_",as.character(sub_n),"_attempt_",attempt,".png"))
   Unity_plot<-cowplot::plot_grid(plotlist = Unity_plot_list,nrow=3,ncol=3,rel_heights = c(1,1))
   plot_title_grid<-cowplot::plot_grid(plot_title,Unity_plot,ncol=1,rel_heights=c(0.1,1))
-  ggsave(png_title,width=24,height=20,units="cm",dpi=600,limitsize = FALSE)
-  cat(paste("Subject",sub_n,"staircase procedures plotted with Unity values are ready"),"\n")
+  ggsave(here("Studies",study,sub_folder_name,results_folder_name,png_title),width = 15,height = 15, units = "cm")
+  cat(paste("Subject",sub_n,"staircases plot 2 done"),"\n")
   
 }
 

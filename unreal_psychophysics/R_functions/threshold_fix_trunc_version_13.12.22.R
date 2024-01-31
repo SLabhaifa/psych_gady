@@ -1,11 +1,10 @@
-threshold_fix<-function(org_threshold_df,paths,sub_n){
+threshold_fix<-function(org_threshold_df,folder_names,sub_n,study){
   library(data.table)
   
   #threshold fix receives: the data frame jnd_thresholds  
   #we check the values do not exceed 4.6 or log+1(100%)
   #using only the my_thresholds column (should be column number 3)
   
-  setwd(paths[5])
   #df is the thresholds csv with the scaled level values in each condition )
   #df<-read.csv(org_threshold_file,header=TRUE, stringsAsFactors = FALSE);
   
@@ -111,14 +110,12 @@ threshold_fix<-function(org_threshold_df,paths,sub_n){
   
   if (flag){
     filename<-gsub(" ","",paste("threshold_values_sub_",as.character(sub_n),".csv"))
-    setwd(paths[5])
-    fwrite(df,filename,col.names=TRUE)
+    export(df,here("Studies",study,folder_names[[1]],folder_names[[2]],filename))
     cat("Thresholds were adjusted","\n")
   }
   else{
     filename<-gsub(" ","",paste("threshold_values_sub_",as.character(sub_n),".csv"))
-    setwd(paths[5])
-    fwrite(df,filename,col.names=TRUE)
+    export(df,here("Studies",study,folder_names[[1]],folder_names[[2]],filename))
     cat("No adjustments were made to the thresholds","\n")
   }
 }

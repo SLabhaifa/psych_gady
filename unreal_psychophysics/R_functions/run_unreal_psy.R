@@ -36,16 +36,16 @@ here(study,sub_folder_name,try(dir.create(results_folder),silent=TRUE))
 here(study,sub_folder_name,results_folder,try(dir.create(unreal_input_folder),silent=TRUE))
 
 
-here("rdas",load("name_conditions_and_domains.rda"))
-here("rdas",load("unreal_psy.rda"))
-here("rdas",load("load_thresholds.rda"))
-here("rdas",load("repeat_list.rda"))
+load(here("rdas","name_conditions_and_domains.rda"))
+load(here("rdas","unreal_psy.rda"))
+load(here("rdas","load_thresholds.rda"))
+load(here("rdas","repeat_list.rda"))
 
 #run the main function
 unreal_psy(folder_names,attempt,sub_n,study)
 
 #place stimuli in empty input file
-load_thresholds(folder_names)
+load_thresholds(folder_names,sub_n)
 
 
 #doAgain contains a list of the conditions we need to redo

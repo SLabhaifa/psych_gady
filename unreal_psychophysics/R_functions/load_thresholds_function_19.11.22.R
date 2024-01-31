@@ -1,5 +1,5 @@
 #run the script with subject fodler path
-load_thresholds<-function(paths){
+load_thresholds<-function(folder_names,sub_n){
 
 
 library(matlabr)#for running matlab from rstudio
@@ -20,30 +20,14 @@ library(gridExtra)#?
 library(itertools)#?
 library(validate)#?
 
-#temporary
-#subject_folder<-"C:\\Users\\User\\Desktop\\unreal_psychophysics\\sub_034"
-setwd(paths[1])
-
-#get sub_num from name of thresholds csv
-sub_n <- stri_sub(paths[1],-3)
-#add leading zeros
- if (nchar(sub_n)==1){
-   sub_n<-paste(rep(0, 1), sub_n, sep = "")
-   sub_n<-paste(rep(0, 1), sub_n, sep = "")
- }
- #add leading zeros
- if (nchar(sub_n)==2){
-   sub_n<-paste(rep(0, 1), sub_n, sep = "")
- }
 
 #auto load the random unreal template input csv
 filename<-gsub(" ","",paste("unreal_input_",sub_n,".csv"));
-filename4<-"Unreal_05_Training_Master_Template__191122.csv"
-setwd(paths[4]) #path4
-#read JND output csv filename
-unreal_rt<-read.csv(filename,header=FALSE, stringsAsFactors = FALSE);
-unreal_training<-read.csv(filename4,header=FALSE, stringsAsFactors = FALSE);
+unreal_rt<-import(here("unreal_random_temps",filename))
 
+
+filename4<-"Unreal_05_Training_Master_Template__191122.csv"
+unreal_training<-import(here("unreal_random_temps",filename4))
 
 cat(paste("Loaded Unreal random template number:",as.character(sub_n)),"\n")
 
@@ -52,16 +36,12 @@ cat(paste("Loaded Unreal random template number:",as.character(sub_n)),"\n")
 #############################################################################
 
 filename2<-gsub(" ","",paste("threshold_values_sub_",as.character(sub_n),".csv"))
-#set wd to subject results directory
-setwd(paths[5])
-#read JND output csv filename
-jnd_thresholds<-read.csv(filename2,header=TRUE, stringsAsFactors = FALSE);
+jnd_thresholds<-import(here("Studies","fmri",folder_names[[1]],folder_names[[2]],filename2))
 
 #load staircase csv
 filename3<-gsub(" ","",paste("staircase_values_sub_",as.character(sub_n),".csv"))
-raw_data<-read.csv(filename3,header=TRUE, stringsAsFactors = FALSE);
-#set back to unreal_psychophysics
-setwd(paths[2])
+raw_data<-import(here("Studies","fmri",folder_names[[1]],folder_names[[2]],filename3))
+
 
 #############################################################################
               #Organizing template for unreal TEST#
@@ -154,12 +134,9 @@ unreal_rt$Ripple[unreal_rt$Ripple=='r4']<-rp$shifted_threshold[4]
 #add the calibration row at the top of the csv
 unreal_rt<-rbind(calibration_row,unreal_rt)
 
-#create input in template form
-setwd(paths[6])
-
 #sub<-readr::parse_number(basename(unreal_rand_temp))
 filename<-gsub(" ","",paste("trials_unreal_",as.character(sub_n),".csv"))
-fwrite(unreal_rt,filename,col.names=FALSE)
+export(unreal_rt,here("Studies","fmri",folder_names[[1]],folder_names[[2]],folder_names[[3]],filename),col.names=FALSE)
 #fwrite(data_cs,'pGD_2sc.csv',col.names=TRUE)
 
 
@@ -254,14 +231,13 @@ unreal_training$Ripple[unreal_training$Ripple=='r4']<-rp$shifted_threshold[4]
 #add the calibration row at the top of the csv
 unreal_training<-rbind(calibration_row,unreal_training)
 
-#create input in template form
-setwd(paths[6])
+
 #sub<-readr::parse_number(basename(unreal_rand_temp))
 filename<-gsub(" ","",paste("trials_unreal_TRAIN_",as.character(sub_n),".csv"))
-fwrite(unreal_training,filename,col.names=FALSE)
-#fwrite(data_cs,'pGD_2sc.csv',col.names=TRUE)
+export(unreal_training,here("Studies","fmri",folder_names[[1]],folder_names[[2]],folder_names[[3]],filename),col.names=FALSE)
 cat("Staircase results, Unreal input csv & Training csv have been created","\n")
 
 }
 
-#save(load_thresholds, file = 'C:\\Users\\User\\Desktop\\unreal_psychophysics\\rdas\\load_thresholds.rda')
+
+#save(load_thresholds, file = 'C:\\Users\\User\\Desktop\\GitHub\\psych_gady\\unreal_psychophysics\\rdas\\load_thresholds.rda')
