@@ -125,4 +125,9 @@ export(data_cf,here("Studies",study,sub_folder_name,results_folder_name,filename
 #adding a marker at the start of the file name so matlab can find this file
 filename<-gsub(" ","",paste("matlab_fitting_file.csv"))
 export(data_cf,here(filename))
+
+#return questionresults to factors
+data_cf$QuestionResult<-as.factor(data_cf$QuestionResult)
+
+return(data_cf)
 }
