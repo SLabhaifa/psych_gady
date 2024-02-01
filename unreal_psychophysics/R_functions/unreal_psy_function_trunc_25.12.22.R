@@ -14,8 +14,8 @@ unreal_psy<-function(folder_names,attempt,sub_n,study){
   library(crayon)
   library(rio)
   
-  sub_folder_name
-  results_folder_name
+  sub_folder_name<-unlist(folder_names)[1]
+  results_folder_name<-unlist(folder_names)[2]
   input_folder_name<-unlist(folder_names)[3]
   
   #load functions
@@ -400,4 +400,4 @@ unreal_psy<-function(folder_names,attempt,sub_n,study){
   
 }
 
-#save(unreal_psy, file = 'C:\\Users\\User\\OneDrive\\Desktop\\unreal_psychophysics\\rdas\\unreal_psy.rda')
+#save(unreal_psy, file = 'C:\\Users\\User\\Desktop\\GitHub\\psych_gady\\unreal_psychophysics\\rdas\\unreal_psy.rda')
