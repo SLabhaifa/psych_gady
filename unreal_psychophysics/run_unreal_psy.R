@@ -1,3 +1,5 @@
+run_unreal_psy<-function(study=readline("Study folder name:"),sub_n = readline("Subject number:"),attempt= readline(prompt = "Fitting attempt number:")){
+  
 source(here("preprocessing.R"))
 source(here("name_conditions_and_domains.R"))
 source(here("post_fit_adjustments.R"))
@@ -5,8 +7,8 @@ source(here("threshold_fix.R"))
 source(here("shift_conditions.R"))
 source(here("plot_staircase.R"))
 source(here("plot_staircase_unity.R"))
-source(here("repeat_jnd.R"))
 source(here("repeat_list.R"))
+
 
 study=readline("Study folder name:")
 sub_n = readline("Subject number:")
@@ -59,3 +61,4 @@ if (file.exists(here("output_matlab",doAgain_f))){
   doAgain<-import(here("output_matlab",doAgain_f),header=TRUE, stringsAsFactors = TRUE);
   repeat_list(folder_names,sub_n,attempt,doAgain,experiment_folder_path)
 } else {cat('\n','No repeats needed','\n')}
+}

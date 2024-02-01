@@ -72,7 +72,7 @@ previous_attempt_file<-stri_sub(previous_attempt_file,1,-5)
 filename<-gsub(" ","",paste(previous_attempt_file,"_",as.character(attempt),"_.csv"))
 export(previous_attempt_plus_repeat,here("Studies",study,sub_folder_name,filename),col.names=TRUE)
 
-# run_unreal_psy(study=study,sub_n,attempt)
+ run_unreal_psy()
 }
 
 #save(repeat_jnd, file = 'C:\\Users\\User\\OneDrive\\Desktop\\unreal_psychophysics\\rdas\\repeat_jnd.rda')
