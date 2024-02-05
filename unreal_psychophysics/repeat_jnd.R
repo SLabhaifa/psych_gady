@@ -14,27 +14,9 @@ library(magicfor)
 library(stringi)
 library(rio)
 library(here)
+
+sub_folder_name<-paste0("sub_",sub_n)
   
-  
-  # sub_n<- readline("Subject number:")
-  # attempt<- readline(prompt = "Staircase attempt number:"); 
-   sub_folder_name<-paste0("sub_",sub_n)
-  
-  #setwd("C:\\Users\\User\\OneDrive\\Desktop\\unreal_psychophysics\\rdas")
-  # load(here("rdas","psy_paths.rda"))
-  # load(here("rdas","run_unreal_psy.rda"))
-  #paths<-psy_paths(subject_folder,attempt,sub_n)
-  #subject_folder<-
-  #psychophysics_folder<-paths[2]
-  #output_matlab<-paths[3]
-  #unreal_random_temps<-paths[4]
-  #results_folder<-paths[5]
-  #unreal_input_folder<- paths[6]
-  #rda_folder<-paths[7]
-  
-  # repeat_number<-as.numeric(attempt)-1;
-  
-  #setwd(subject_folder)
   
 #load the answers csv of the repeated staircases
 repeat_file<-list.files(here("Studies",study,sub_folder_name), pattern=glob2rx("*repeat*.csv"))[1];

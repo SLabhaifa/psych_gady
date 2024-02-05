@@ -1,0 +1,45 @@
+
+
+1.place the unreal_psychophysics folder on your desktop
+
+2.Go to the "Studies" folder and inside your study create a subject folder and name it like this: sub_001
+  Put the subject's Answers.csv in the new subject folder.
+
+3.Click on "unreal_psychophysics.Rproj" - RStudio opens
+
+4. Go back to the folder and click on "run_unreal_psy.R"
+
+5.In RStudio click on "Source"
+
+5.Then type in the terminal: run_unreal_psy()
+	EXAMPLE:
+	'Subject number:' 023
+	'Study folder name:' wonderland
+	'Fitting attempt number:' 1
+
+5. Results will appear inside the subject folder
+a. a results folder: 'results_sub_xxx'
+b. 2 staircase figures
+c. curve fit figure
+d. thresholds csv
+e. the original answers file saved as 'Attempt_#_Answers...'
+f. a cleaned data file for later analyses called 'staircase_data_sub_xxx...'
+g. In another folder: the input csv for unreal test and train ('trials_unreal_xxx.csv')
+	with the thresholds already loaded
+
+Repeat_jnd
+
+1. If you need to repeat a staircase, you will see the subtitle is RED in the matlab fit figure
+This means there is already a repeat file in the repeat folder at:
+"Experiment\\UnrealData\\Plans\\repeat_JND"
+
+2. Run the repeat experiment and place the new Answers.csv in the subject folder in unreal_psychophysics
+
+3. Run repeat_jnd.R
+
+4. New results will appear in a separate results folder named by the attempt number.
+   Repeated conditions will have purple plot titles in the staircase figures so you will be able to know the condition was repeated from the graph.
+
+
+
+#last edit: Gadi Drori 5.2.2024
