@@ -1,7 +1,10 @@
-post_fit_adjustments<-function(){
+post_fit_adjustments<-function(sub_n,study,attempt,sub_folder_name,results_folder_name,ConditionName_vec,data_cf){
 
 fitted_file<-gsub(" ","",paste("threshold_values_sub_",sub_n,".csv"))
 jnd_thresholds<-import(here("output_matlab",fitted_file))
+
+#set the filename, always take the file called Answers*
+filename_ans<-list.files(here("Studies",study,sub_folder_name), pattern=glob2rx("Answers*.csv"))[1]
 
 #removing any imaginary parts from the thresholds
 jnd_thresholds$my_thresholds_real<-Re(jnd_thresholds$my_thresholds)

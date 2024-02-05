@@ -1,4 +1,4 @@
-repeat_jnd<-function(study=readline("Study folder name:")){
+repeat_jnd<-function(study=readline("Study folder name:"),sub_n = readline("Subject number:"),attempt= readline(prompt = "Fitting attempt number:")){
   
 #{study_number,attempt}
 #you need to run the function and it will prompt you with these questions
@@ -12,11 +12,13 @@ library(tidyr)
 library(cowplot)
 library(magicfor)
 library(stringi)
+library(rio)
+library(here)
   
   
-  sub_n<- readline("Subject number:")
-  attempt<- readline(prompt = "Staircase attempt number:"); 
-  sub_folder_name<-paste0("sub_",sub_n)
+  # sub_n<- readline("Subject number:")
+  # attempt<- readline(prompt = "Staircase attempt number:"); 
+   sub_folder_name<-paste0("sub_",sub_n)
   
   #setwd("C:\\Users\\User\\OneDrive\\Desktop\\unreal_psychophysics\\rdas")
   # load(here("rdas","psy_paths.rda"))
@@ -30,13 +32,14 @@ library(stringi)
   #unreal_input_folder<- paths[6]
   #rda_folder<-paths[7]
   
-  repeat_number<-as.numeric(attempt)-1;
+  # repeat_number<-as.numeric(attempt)-1;
   
   #setwd(subject_folder)
   
 #load the answers csv of the repeated staircases
 repeat_file<-list.files(here("Studies",study,sub_folder_name), pattern=glob2rx("*repeat*.csv"))[1];
 repeat_data<-import(here("Studies",study,sub_folder_name,repeat_file))
+
 unlink(here("Studies",study,sub_folder_name,repeat_file))
 
 #load the previous attempt csv (there should be only one attempt file in the folder)
@@ -72,6 +75,7 @@ previous_attempt_file<-stri_sub(previous_attempt_file,1,-5)
 filename<-gsub(" ","",paste(previous_attempt_file,"_",as.character(attempt),"_.csv"))
 export(previous_attempt_plus_repeat,here("Studies",study,sub_folder_name,filename),col.names=TRUE)
 
+source(here("run_unreal_psy.R"))
  run_unreal_psy()
 }
 

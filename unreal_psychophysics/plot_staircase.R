@@ -1,10 +1,11 @@
 plot_staircase <- function(con_name,data_cf,jnd_adjusted_thresholds) {
   
-    cat("Plotting staircases...","\n")
+    cat("Plotting ",con_name," Staircase","\n")
     #filter the exact condition from the data frame
     df<-data_cf %>% filter(ConditionName %in% c(con_name))
     df_attempt<-df$Attempt[1]
     stair_max<-max(abs(df$StairCaseValue))
+    
     ConditionName_vec<-unique(as.vector(df$ConditionName))
     ConditionName_vec<-ConditionName_vec[order(ConditionName_vec)]
     
@@ -61,22 +62,9 @@ plot_staircase <- function(con_name,data_cf,jnd_adjusted_thresholds) {
       geom_hline(yintercept=level4,color="green",linetype="dashed")+
       geom_hline(yintercept=avg_rev,linetype="dashed",color="black")#+{annotate(geom = "text",size=2.1,color="blue",x=2,y=org_list_ano,label=paste(as.character(org_list)))}
     return(plt_jnd+theme(legend.position="none"))
-
-  
-  JND_plot_list<-vector(mode = "list", length=length(ConditionName_vec))
-  
-  for (x in 1:length(ConditionName_vec)){
-    try(JND_plot_list[[x]]<-plot_staircase(ConditionName_vec[x],data_cf,jnd_adjusted_thresholds),silent = FALSE)
-  }
   
   
   ############################################################################################################################
   
-  plot_title <- ggdraw() + draw_label(paste("Subject ",as.character(sub_n)), fontface='bold',x=0,size=14,hjust=-4.75)
-  png_title<-gsub(" ","",paste("Psychophysics_Percents_sub_",as.character(sub_n),"_attempt_",attempt,".png"))
-  Runs_plot<-cowplot::plot_grid(plotlist = JND_plot_list,nrow=3,ncol=3,rel_heights = c(1,1))
-  plot_title_grid<-cowplot::plot_grid(plot_title,Runs_plot,ncol=1,rel_heights=c(0.1,1))
-  ggsave(here("Studies",study,sub_folder_name,results_folder_name,png_title),width = 15,height = 15, units = "cm")
-  cat(paste("Subject",sub_n,"staircases plot 1 done"),"\n")
   
 }

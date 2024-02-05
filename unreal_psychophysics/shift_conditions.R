@@ -1,4 +1,4 @@
-shift_conditions<-function(){
+shift_conditions<-function(sub_n,study,sub_folder_name,results_folder_name){
 
 #using the adjusted threshold file instead of the original in case of adjusted thresholds
 filename_fixed_thresholds<-gsub(" ","",paste("threshold_values_sub_",as.character(sub_n),".csv"))

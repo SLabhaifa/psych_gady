@@ -112,8 +112,8 @@ threshold_fix<-function(org_threshold_df,folder_names,sub_n,study){
         (t == "Ripple" && (df[i,"jnd_weighted_threshold"] < 0 || df[i,"jnd_weighted_threshold"] > df[df$prob==0.95 & df$Condition=="Ripple","max_strength"]|| is.na(df[i,"jnd_weighted_threshold"]))) ||
         (t == "Shrink" &&(df[i,"jnd_weighted_threshold"] > 0 || df[i,"jnd_weighted_threshold"] < df[df$prob==0.95 & df$Condition=="Shrink","max_strength"]|| is.na(df[i,"jnd_weighted_threshold"]))))
      {
-      cat("Value Change in: ", t, ",", df[i,"prob"], "\n")
-      cat("From: ", df[i,"jnd_weighted_threshold"], " to ", hdf[i,"adj_stim_val"], "\n\n")
+      cat("\033[1;30m Value Change in: ", t, ",", df[i,"prob 033[0m"], "\n")
+      cat("\033[1;30m From: ", df[i,"jnd_weighted_threshold"], " to ", hdf[i,"adj_stim_val033[0m"], "\n\n")
       df[i, "adj_stim_val"] <- hdf[i, "adj_stim_val"]
       df[i,"adjusted_status"]<-1
       flag=TRUE;
@@ -129,7 +129,7 @@ threshold_fix<-function(org_threshold_df,folder_names,sub_n,study){
   if (flag){
     filename<-gsub(" ","",paste("threshold_values_sub_",as.character(sub_n),".csv"))
     export(df,here("Studies",study,folder_names[[1]],folder_names[[2]],filename))
-    cat("Thresholds were adjusted","\n")
+    cat("\033[1;34mThresholds were adjusted","\033[0m\n")
   }
   else{
     filename<-gsub(" ","",paste("threshold_values_sub_",as.character(sub_n),".csv"))

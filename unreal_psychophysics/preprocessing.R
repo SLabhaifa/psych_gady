@@ -1,5 +1,19 @@
-preprocessing<-function(){
+preprocessing<-function(sub_n,study,attempt,sub_folder_name,results_folder_name){
 
+  library(matlabr)
+  library(data.table) 
+  library(ggplot2) 
+  library(dplyr) 
+  library(tidyr) 
+  library(cowplot) 
+  library(magicfor)
+  library(stringi)
+  library(scales)
+  library(ggpubr)
+  library(formattable)
+  library(crayon)
+  library(rio)
+  library(here)
 
 #set the filename, always take the file called Answers*
 filename_ans<-list.files(here("Studies",study,sub_folder_name), pattern=glob2rx("Answers*.csv"))[1]
