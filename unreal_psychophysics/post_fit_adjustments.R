@@ -7,7 +7,7 @@ jnd_thresholds<-import(here("output_matlab",fitted_file))
 filename_ans<-list.files(here("Studies",study,sub_folder_name), pattern=glob2rx("Answers*.csv"))[1]
 
 #removing any imaginary parts from the thresholds
-jnd_thresholds$my_thresholds_real<-Re(jnd_thresholds$my_thresholds)
+jnd_thresholds$my_thresholds_real<-Re(as.complex(jnd_thresholds$my_thresholds))
 jnd_thresholds<- jnd_thresholds %>% mutate(Subject = sub_n)
 jnd_thresholds<- jnd_thresholds %>% mutate(Study = study)
 jnd_thresholds<- jnd_thresholds %>% mutate(Filename = filename_ans)

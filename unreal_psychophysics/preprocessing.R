@@ -46,7 +46,7 @@ data<-data[filter_questions,]
 data<-data[!(data$QuestionResult=="NoAnswerInTime"),]
 
 #remove columns we don't need
-data_c<-subset(data, select=-c(ProbabilityComment,TimesatmpInitialDirection,InitialDirection,SessionID,Phase,QuestionID,TimeOfVaseHit,NegativeAnswersCount,PositiveAnswersCount,ConvertedValue))
+data_c<-subset(data, select=-c(ProbabilityComment,TimesatmpInitialDirection,InitialDirection,SessionID,Phase,QuestionID,TimeOfHit,NegativeAnswersCount,PositiveAnswersCount,ConvertedValue))
 
 #rename some columns
 colnames(data_c)[1]<-"Block"
