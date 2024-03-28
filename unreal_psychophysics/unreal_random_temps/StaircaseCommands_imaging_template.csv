@@ -1,0 +1,16 @@
+Condition,#stairCaseSerialID,parameterNumberToChange,initialValue,Operator to use for positive,Value to use for positive,Operator To Use for Negative,Value to Use for Negative,num of iteration for positive,num of iterations for negative,number of iterations for finish,valueToCompare,comparationOperan,numberofphases,Phase to Manipulate,Operator for conversion,Value for  converstion,flipBreakLimit,Use Border,top Border,bottom Border,Use Probability,positive Prob,Negative Prob,use inhibition,pos inhibition number,neg inhibition,FlipInhbitionNumber
+,1,11,1,*,1,*,1,1,1,1,0.5,>,2,1,+,0,5,FALSE,0,0,FALSE,100,100,TRUE,1,1,4
+Fast,1220202,12,fast2,/,0.8,*,0.8,1,1,1,0.5,>,2,2,+,1,5,FALSE,0.36992,0.05,FALSE,100,100,TRUE,1,1,4
+Fast,1220204,12,fast4,/,0.8,*,0.8,1,1,1,0.5,>,2,2,+,1,5,FALSE,0.36992,0.05,FALSE,100,100,TRUE,1,1,4
+Grow,6020202,6,grow2,/,0.7,*,0.7,1,1,1,0.5,>,2,2,+,0,5,FALSE,0.052942,0,FALSE,100,100,TRUE,1,1,4
+Grow,6020204,6,grow4,/,0.7,*,0.7,1,1,1,0.5,>,2,2,+,0,5,FALSE,0.052942,0,FALSE,100,100,TRUE,1,1,4
+Plant,3822,38,plantr2,/,0.7,*,0.7,1,1,1,0.5,>,2,2,+,0,5,FALSE,1,0,FALSE,100,100,TRUE,1,1,4
+Plant,3824,38,plantr4,/,0.7,*,0.7,1,1,1,0.5,>,2,2,+,0,5,FALSE,1,0,FALSE,100,100,TRUE,1,1,4
+Saturated,3020202,30,sat2,/,0.8,*,0.8,1,1,1,0.5,>,2,2,+,0,5,FALSE,21.97,0,FALSE,100,100,TRUE,1,1,4
+Saturated,3020204,30,sat4,/,0.8,*,0.8,1,1,1,0.5,>,2,2,+,0,5,FALSE,21.97,0,FALSE,100,100,TRUE,1,1,4
+Shrink,6010202,6,shrink2,/,0.7,*,0.7,1,1,1,0.5,>,2,2,+,0,5,FALSE,0,-0.15435,FALSE,100,100,TRUE,1,1,4
+Shrink,6010204,6,shrink4,/,0.7,*,0.7,1,1,1,0.5,>,2,2,+,0,5,FALSE,0,-0.15435,FALSE,100,100,TRUE,1,1,4
+Slow,1210202,12,slow2,/,0.8,*,0.8,1,1,1,0.5,>,2,2,+,1,5,FALSE,-0.001,-3,FALSE,100,100,TRUE,1,1,4
+Slow,1210204,12,slow4,/,0.8,*,0.8,1,1,1,0.5,>,2,2,+,1,5,FALSE,-0.001,-3,FALSE,100,100,TRUE,1,1,4
+Unsaturated,3010202,30,unsat2,/,0.8,*,0.8,1,1,1,0.5,>,2,2,+,0,5,FALSE,0,-14.2805,FALSE,100,100,TRUE,1,1,4
+Unsaturated,3010204,30,unsat4,/,0.8,*,0.8,1,1,1,0.5,>,2,2,+,0,5,FALSE,0,-14.2805,FALSE,100,100,TRUE,1,1,4

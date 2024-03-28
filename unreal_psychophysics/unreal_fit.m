@@ -17,7 +17,7 @@ addpath(genpath('functions')) %genpath adds all subfolders within "functions" fo
 path_input=[]; %If in same folder as this matlab script then: path_input=[];
 
 %define the folder where output csv is stored.
-path_output = 'C:\Users\User\OneDrive\Desktop\unreal_psychophysics\output_matlab'; % Important! folder must exist. Important! If want to store in  same folder as this matlab script then: path_output=[];
+path_output = 'C:\Users\User\Desktop\GitHub\psych_gady\unreal_psychophysics\output_matlab'; % Important! folder must exist. Important! If want to store in  same folder as this matlab script then: path_output=[];
 
 
 %DEFINE HERE VALUES of % NO (or yes depending on what you decided above)
@@ -149,7 +149,7 @@ for cond_num=1:length(cond_names)
         if points_counter < 1 || thresh_stim(1)>=4.6 || thresh_stim(2)>=4.6
             title({'';sprintf('\n %s, r^2 = %.2f \n L=%s \n',...
                 cond_names{cond_num}, p_r2,print_thresh_values(thresh_stim))},'Color','red');
-            msgbox('~~~~~~Bad Fit please do this condition again~~~~~~', cond_names{cond_num})
+            %msgbox('~~~~~~Bad Fit please do this condition again~~~~~~', cond_names{cond_num})
             doAgain = [doAgain, cond_names{cond_num}];
         else
             title({'';sprintf('\n %s, r^2 = %.2f  \n L=%s \n',...
@@ -162,7 +162,7 @@ for cond_num=1:length(cond_names)
         
     elseif p_r2<0.3 || isempty(p_r2) || isnan(p_r2) || p_r2>0.990
         clear title
-        msgbox('~~~~~~Bad Fit please do this condition again~~~~~~', cond_names{cond_num})
+        %msgbox('~~~~~~Bad Fit please do this condition again~~~~~~', cond_names{cond_num})
         doAgain = [doAgain, cond_names{cond_num}];
         try
             title({'';sprintf('\n %s, r^2 = %.2f \n L=%s \n',...
@@ -209,12 +209,12 @@ writetable(output_tbl,fullfile(path_output,sprintf('threshold_values_sub_%s.csv'
       writetable(retake_print,fullfile(path_output,sprintf('doAgain_values_sub_%s.csv',sub_name)));
  end
 
-current_folder = cd;%current folder is the psychophysics folder
-results_folder = append(current_folder,'\unreal_05\sub_',sub_name,'\results_sub_',sub_name,'_attempt_',num2str(attempt)); %cd to the current subjects' results folder
+current_folder = cd; %current folder is the psychophysics folder
+%results_folder = append(current_folder,'\unreal_05\sub_',sub_name,'\results_sub_',sub_name,'_attempt_',num2str(attempt)); %cd to the current subjects' results folder
 
-cd (results_folder);
+%cd (results_folder);
 filename=string(sub_name);
 s = strcat(filename,'_fits.png');
 saveas(gcf,s,'png')
 %saveas(figure,s,png)
-cd('C:\Users\User\OneDrive\Desktop\unreal_psychophysics');
+cd('C:\Users\User\Desktop\GitHub\psych_gady\unreal_psychophysics');
