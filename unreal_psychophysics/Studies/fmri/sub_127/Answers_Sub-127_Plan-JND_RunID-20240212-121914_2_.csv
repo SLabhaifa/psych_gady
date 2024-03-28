@@ -1,5 +1,4 @@
 #Index,TrialNumber,BlockNumber,QuestionResult,TimeOfHit,StairCaseValue,PositiveAnswersCount,NegativeAnswersCount,ConvertedValue,ConsequtiveCounter,SessionID,TimeStampStartQuestion,TimestampEndQuestion,ResponseTime,QuestionID,Phase,ProbabilityComment,InitialDirection,TimesatmpInitialDirection,Attempt
-0,1,0,0,QuestionRow,,,,,,20240212-121914,121919798,121920298,0.5003939,9992,,"",0,,1
 5,602029,0,0,QuestionRow,0.3,0,1,0.3,17,20240212-121914,122222040,122223144,1.104499,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.3000000000   Staircase is 0.2100000000,0,,1
 5,602029,0,0,QuestionRow,0.21,0,2,0.21,18,20240212-121914,122232281,122233175,0.8940699,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.2100000000   Staircase is 0.1470000000,0,,1
 6,602027,0,0,QuestionRow,0.2,0,1,0.2,19,20240212-121914,122242336,122243624,1.287406,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.2000000000   Staircase is 0.1400000000,0,,1
@@ -14,7 +13,6 @@
 7,6020202,7,1,QuestionRow,0.0252105,2,6,0.0252105,28,20240212-121914,122422548,122423953,1.405103,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was 0.0252105000   Staircase is 0.0360150000,0,,1
 7,6020202,7,0,QuestionRow,0.036015,2,7,0.036015,29,20240212-121914,122433037,122433834,0.7968584,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.0360150000   Staircase is 0.0252105000,0,,1
 7,6020202,7,1,QuestionRow,0.0252105,3,7,0.0252105,30,20240212-121914,122442974,122444482,1.507573,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was 0.0252105000   Staircase is 0.0360150000,0,,1
-8,99,0,NoAnswerInTime,QuestionRow,,,,,,20240212-121914,122445304,122450314,-1,50,,"",0,,1
 9,38229,0,0,QuestionRow,0.45,0,1,0.45,31,20240212-121914,122458984,122500263,1.278707,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.4500000000   Staircase is 0.3150000000,0,,1
 9,38229,0,0,QuestionRow,0.315,0,2,0.315,32,20240212-121914,122509387,122510211,0.823931,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.3150000000   Staircase is 0.2205000000,0,,1
 10,38227,0,0,QuestionRow,0.35,0,1,0.35,33,20240212-121914,122519340,122520292,0.9523307,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.3500000000   Staircase is 0.2450000000,0,,1
@@ -29,7 +27,6 @@
 11,3822,1,1,QuestionRow,0.036015,3,6,0.036015,42,20240212-121914,122650897,122652409,1.511531,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was 0.0360150000   Staircase is 0.0514500000,0,,1
 11,3822,1,0,QuestionRow,0.05145,3,7,0.05145,43,20240212-121914,122701534,122702289,0.7555814,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.0514500000   Staircase is 0.0360150000,0,,1
 11,3822,1,1,QuestionRow,0.036015,4,7,0.036015,44,20240212-121914,122711411,122712138,0.7275033,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was 0.0360150000   Staircase is 0.0514500000,0,,1
-12,99,0,NoAnswerInTime,QuestionRow,,,,,,20240212-121914,122712947,122717951,-1,50,,"",0,,1
 13,301029,0,0,QuestionRow,-52.8,0,1,-52.8,45,20240212-121914,122726589,122727884,1.294174,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -52.8000000000   Staircase is -42.2400000000,0,,1
 13,301029,0,0,QuestionRow,-42.24,0,2,-42.24,46,20240212-121914,122737033,122738447,1.413548,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -42.2400000000   Staircase is -33.7920000000,0,,1
 14,301027,0,0,QuestionRow,-33.87,0,1,-33.87,47,20240212-121914,122747601,122748763,1.162636,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -33.8700000000   Staircase is -27.0960000000,0,,1
@@ -52,7 +49,6 @@
 15,3010202,4,0,QuestionRow,-3.485634,3,13,-3.485634,64,20240212-121914,123048243,123049226,0.9831479,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -3.4856340000   Staircase is -2.7885070000,0,,1
 15,3010202,4,0,QuestionRow,-2.788507,3,14,-2.788507,65,20240212-121914,123058335,123059059,0.7240048,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -2.7885070000   Staircase is -2.2308060000,0,,1
 15,3010202,4,1,QuestionRow,-2.230806,4,14,-2.230806,66,20240212-121914,123108165,123109256,1.090744,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was -2.2308060000   Staircase is -2.7885080000,0,,1
-16,99,0,NoAnswerInTime,QuestionRow,,,,,,20240212-121914,123110068,123115075,-1,50,,"",0,,1
 17,302029,0,0,QuestionRow,52.8,0,1,52.8,67,20240212-121914,123123719,123125421,1.701337,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 52.8000000000   Staircase is 42.2400000000,0,,1
 17,302029,0,0,QuestionRow,42.24,0,2,42.24,68,20240212-121914,123134539,123136101,1.562228,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 42.2400000000   Staircase is 33.7920000000,0,,1
 18,302027,0,0,QuestionRow,33.87,0,1,33.87,69,20240212-121914,123145174,123146167,0.9926643,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 33.8700000000   Staircase is 27.0960000000,0,,1
@@ -69,7 +65,6 @@
 19,3020202,5,0,QuestionRow,25.97,5,6,25.97,80,20240212-121914,123335555,123336328,0.7730298,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 25.9700000000   Staircase is 20.7760000000,0,,1
 19,3020202,5,1,QuestionRow,20.776,6,6,20.776,81,20240212-121914,123345444,123346361,0.9164788,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was 20.7760000000   Staircase is 25.9700000000,0,,1
 19,3020202,5,0,QuestionRow,25.97,6,7,25.97,82,20240212-121914,123355459,123356113,0.6540037,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 25.9700000000   Staircase is 20.7760000000,0,,1
-20,99,0,NoAnswerInTime,QuestionRow,,,,,,20240212-121914,123356954,123401959,-1,50,,"",0,,1
 21,121029,0,0,QuestionRow,-0.64,0,1,0.36,83,20240212-121914,123410654,123411854,1.200487,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.6400000000   Staircase is -0.5120000000,0,,1
 21,121029,0,0,QuestionRow,-0.512,0,2,0.488,84,20240212-121914,123421001,123422003,1.002207,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.5120000000   Staircase is -0.4096000000,0,,1
 22,121027,0,0,QuestionRow,-0.6,0,1,0.4,85,20240212-121914,123431126,123432001,0.8745748,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.6000000000   Staircase is -0.4800000000,0,,1
@@ -87,32 +82,65 @@
 23,1210202,2,0,QuestionRow,-0.28672,4,8,0.71328,97,20240212-121914,123633228,123634127,0.8998759,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.2867200000   Staircase is -0.2293760000,0,,1
 23,1210202,2,0,QuestionRow,-0.229376,4,9,0.770624,98,20240212-121914,123643269,123644142,0.8729806,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.2293760000   Staircase is -0.1835008000,0,,1
 23,1210202,2,1,QuestionRow,-0.1835008,5,9,0.8164992,99,20240212-121914,123653237,123654124,0.8872774,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was -0.1835008000   Staircase is -0.2293760000,0,,1
-24,99,0,NoAnswerInTime,QuestionRow,,,,,,20240212-121914,123654951,123659958,-1,50,,"",0,,1
+0,1,0,0,QuestionRow,,,,,,20240212-134602,134605543,134606227,0.6840011,9992,,"",0,,2
+1,122029,0,0,QuestionRow,0.875,0,1,1.875,1,20240212-134602,134615232,134622273,7.04042,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.8750000000   Staircase is 0.7000000000,0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,2,20240212-134602,134631314,134641323,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,3,20240212-134602,134649875,134659882,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,4,20240212-134602,134708454,134718461,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,5,20240212-134602,134727035,134737041,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,6,20240212-134602,134745597,134755605,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,7,20240212-134602,134804178,134814185,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,8,20240212-134602,134822774,134832781,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,9,20240212-134602,134841355,134851361,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,10,20240212-134602,134859950,134909957,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,11,20240212-134602,134918529,134928537,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,12,20240212-134602,134937109,134947116,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,13,20240212-134602,134955706,135005712,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,14,20240212-134602,135014271,135024275,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,15,20240212-134602,135032832,135042839,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,16,20240212-134602,135051412,135101419,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,17,20240212-134602,135110017,135120015,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,18,20240212-134602,135128570,135138578,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,19,20240212-134602,135147167,135157175,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,20,20240212-134602,135205750,135215755,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,21,20240212-134602,135224317,135234317,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,22,20240212-134602,135242872,135252880,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,23,20240212-134602,135301471,135311477,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,24,20240212-134602,135320050,135330057,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,25,20240212-134602,135338628,135348636,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,26,20240212-134602,135357223,135407233,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,27,20240212-134602,135415813,135425812,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,28,20240212-134602,135434391,135444392,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,29,20240212-134602,135452957,135502955,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,30,20240212-134602,135511519,135521518,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,31,20240212-134602,135530101,135540098,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,32,20240212-134602,135548675,135558678,-1,88,,"",0,,2
+1,122029,0,NoAnswerInTime,QuestionRow,0.7,0,1,1.7,33,20240212-134602,135607245,135617257,-1,88,,"",0,,2
 1,122029,0,0,QuestionRow,0.7,0,2,1.7,34,20240212-134602,135625839,135628057,2.21829,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.7000000000   Staircase is 0.5600000000,0,,2
 2,122027,0,0,QuestionRow,0.75,0,1,1.75,35,20240212-134602,135637086,135637903,0.8174161,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.7500000000   Staircase is 0.6000000000,0,,2
-3,1220202,4,0,QuestionRow,0.5,0,1,1.5,36,20240212-134602,135646920,135649101,2.18116,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.5000000000   Staircase is 0.4000000000,0,,2
-3,1220202,4,0,QuestionRow,0.4,0,2,1.4,37,20240212-134602,135658134,135700467,2.332554,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.4000000000   Staircase is 0.3200000000,0,,2
-3,1220202,4,0,QuestionRow,0.32,0,3,1.32,38,20240212-134602,135709479,135710214,0.7349699,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.3200000000   Staircase is 0.2560000000,0,,2
-3,1220202,4,1,QuestionRow,0.256,1,3,1.256,39,20240212-134602,135719267,135719953,0.6860098,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was 0.2560000000   Staircase is 0.3200000000,0,,2
-3,1220202,4,1,QuestionRow,0.32,2,3,1.32,40,20240212-134602,135728984,135730595,1.610553,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was 0.3200000000   Staircase is 0.4000000000,0,,2
-3,1220202,4,0,QuestionRow,0.4,2,4,1.4,41,20240212-134602,135739597,135742125,2.52776,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.4000000000   Staircase is 0.3200000000,0,,2
-3,1220202,4,1,QuestionRow,0.32,3,4,1.32,42,20240212-134602,135751169,135751905,0.7364166,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was 0.3200000000   Staircase is 0.4000000000,0,,2
-3,1220202,4,1,QuestionRow,0.4,4,4,1.4,43,20240212-134602,135800951,135801820,0.8688533,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was 0.4000000000   Staircase is 0.5000000000,0,,2
-3,1220202,4,0,QuestionRow,0.5,4,5,1.5,44,20240212-134602,135810851,135811585,0.7340016,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.5000000000   Staircase is 0.4000000000,0,,2
-3,1220202,4,1,QuestionRow,0.4,5,5,1.4,45,20240212-134602,135820620,135822516,1.895874,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was 0.4000000000   Staircase is 0.5000000000,0,,2
-3,1220202,4,0,QuestionRow,0.5,5,6,1.5,46,20240212-134602,135831527,135834348,2.820785,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.5000000000   Staircase is 0.4000000000,0,,2
+3,1220202,11,0,QuestionRow,0.5,0,1,1.5,36,20240212-134602,135646920,135649101,2.18116,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.5000000000   Staircase is 0.4000000000,0,,2
+3,1220202,11,0,QuestionRow,0.4,0,2,1.4,37,20240212-134602,135658134,135700467,2.332554,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.4000000000   Staircase is 0.3200000000,0,,2
+3,1220202,11,0,QuestionRow,0.32,0,3,1.32,38,20240212-134602,135709479,135710214,0.7349699,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.3200000000   Staircase is 0.2560000000,0,,2
+3,1220202,11,1,QuestionRow,0.256,1,3,1.256,39,20240212-134602,135719267,135719953,0.6860098,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was 0.2560000000   Staircase is 0.3200000000,0,,2
+3,1220202,11,1,QuestionRow,0.32,2,3,1.32,40,20240212-134602,135728984,135730595,1.610553,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was 0.3200000000   Staircase is 0.4000000000,0,,2
+3,1220202,11,0,QuestionRow,0.4,2,4,1.4,41,20240212-134602,135739597,135742125,2.52776,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.4000000000   Staircase is 0.3200000000,0,,2
+3,1220202,11,1,QuestionRow,0.32,3,4,1.32,42,20240212-134602,135751169,135751905,0.7364166,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was 0.3200000000   Staircase is 0.4000000000,0,,2
+3,1220202,11,1,QuestionRow,0.4,4,4,1.4,43,20240212-134602,135800951,135801820,0.8688533,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was 0.4000000000   Staircase is 0.5000000000,0,,2
+3,1220202,11,0,QuestionRow,0.5,4,5,1.5,44,20240212-134602,135810851,135811585,0.7340016,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.5000000000   Staircase is 0.4000000000,0,,2
+3,1220202,11,1,QuestionRow,0.4,5,5,1.4,45,20240212-134602,135820620,135822516,1.895874,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was 0.4000000000   Staircase is 0.5000000000,0,,2
+3,1220202,11,0,QuestionRow,0.5,5,6,1.5,46,20240212-134602,135831527,135834348,2.820785,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was 0.5000000000   Staircase is 0.4000000000,0,,2
 4,99,0,NoAnswerInTime,QuestionRow,,,,,,20240212-134602,135835268,135840265,-1,50,,"",0,,2
 5,601029,0,0,QuestionRow,-0.4285714,0,1,-0.4285714,47,20240212-134602,135848864,135849978,1.114398,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.4285714000   Staircase is -0.3000000000,0,,2
 5,601029,0,0,QuestionRow,-0.3,0,2,-0.3,48,20240212-134602,135858993,135859891,0.8980904,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.3000000000   Staircase is -0.2100000000,0,,2
 6,601027,0,0,QuestionRow,-0.2857143,0,1,-0.2857143,49,20240212-134602,135908946,135909856,0.9113082,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.2857143000   Staircase is -0.2000000000,0,,2
-7,6010202,5,0,QuestionRow,-0.2142857,0,1,-0.2142857,50,20240212-134602,135918869,135919704,0.8346665,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.2142857000   Staircase is -0.1500000000,0,,2
-7,6010202,5,0,QuestionRow,-0.15,0,2,-0.15,51,20240212-134602,135928720,135929769,1.048637,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.1500000000   Staircase is -0.1050000000,0,,2
-7,6010202,5,1,QuestionRow,-0.105,1,2,-0.105,52,20240212-134602,135938795,135939618,0.8229635,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was -0.1050000000   Staircase is -0.1500000000,0,,2
-7,6010202,5,0,QuestionRow,-0.15,1,3,-0.15,53,20240212-134602,135948647,135949434,0.7869202,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.1500000000   Staircase is -0.1050000000,0,,2
-7,6010202,5,1,QuestionRow,-0.105,2,3,-0.105,54,20240212-134602,135958476,140000331,1.855124,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was -0.1050000000   Staircase is -0.1500000000,0,,2
-7,6010202,5,0,QuestionRow,-0.15,2,4,-0.15,55,20240212-134602,140009374,140010212,0.8379947,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.1500000000   Staircase is -0.1050000000,0,,2
-7,6010202,5,1,QuestionRow,-0.105,3,4,-0.105,56,20240212-134602,140019244,140019960,0.7160062,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was -0.1050000000   Staircase is -0.1500000000,0,,2
-7,6010202,5,0,QuestionRow,-0.15,3,5,-0.15,57,20240212-134602,140028991,140029708,0.7173756,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.1500000000   Staircase is -0.1050000000,0,,2
-7,6010202,5,0,QuestionRow,-0.105,3,6,-0.105,58,20240212-134602,140038772,140039423,0.6509578,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.1050000000   Staircase is -0.0735000000,0,,2
-7,6010202,5,0,QuestionRow,-0.0735,3,7,-0.0735,59,20240212-134602,140048454,140049172,0.7178909,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.0735000000   Staircase is -0.0514500000,0,,2
-7,6010202,5,1,QuestionRow,-0.05145,4,7,-0.05145,60,20240212-134602,140058207,140059103,0.895883,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was -0.0514500000   Staircase is -0.0735000000,0,,2
+7,6010202,12,0,QuestionRow,-0.2142857,0,1,-0.2142857,50,20240212-134602,135918869,135919704,0.8346665,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.2142857000   Staircase is -0.1500000000,0,,2
+7,6010202,12,0,QuestionRow,-0.15,0,2,-0.15,51,20240212-134602,135928720,135929769,1.048637,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.1500000000   Staircase is -0.1050000000,0,,2
+7,6010202,12,1,QuestionRow,-0.105,1,2,-0.105,52,20240212-134602,135938795,135939618,0.8229635,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was -0.1050000000   Staircase is -0.1500000000,0,,2
+7,6010202,12,0,QuestionRow,-0.15,1,3,-0.15,53,20240212-134602,135948647,135949434,0.7869202,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.1500000000   Staircase is -0.1050000000,0,,2
+7,6010202,12,1,QuestionRow,-0.105,2,3,-0.105,54,20240212-134602,135958476,140000331,1.855124,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was -0.1050000000   Staircase is -0.1500000000,0,,2
+7,6010202,12,0,QuestionRow,-0.15,2,4,-0.15,55,20240212-134602,140009374,140010212,0.8379947,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.1500000000   Staircase is -0.1050000000,0,,2
+7,6010202,12,1,QuestionRow,-0.105,3,4,-0.105,56,20240212-134602,140019244,140019960,0.7160062,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was -0.1050000000   Staircase is -0.1500000000,0,,2
+7,6010202,12,0,QuestionRow,-0.15,3,5,-0.15,57,20240212-134602,140028991,140029708,0.7173756,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.1500000000   Staircase is -0.1050000000,0,,2
+7,6010202,12,0,QuestionRow,-0.105,3,6,-0.105,58,20240212-134602,140038772,140039423,0.6509578,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.1050000000   Staircase is -0.0735000000,0,,2
+7,6010202,12,0,QuestionRow,-0.0735,3,7,-0.0735,59,20240212-134602,140048454,140049172,0.7178909,88,,Negative Answer not inhibted counter is 1 from 1 reset Staircase was -0.0735000000   Staircase is -0.0514500000,0,,2
+7,6010202,12,1,QuestionRow,-0.05145,4,7,-0.05145,60,20240212-134602,140058207,140059103,0.895883,88,,Positive Answer not inhibted counter is 1 from 1 reset Staircase was -0.0514500000   Staircase is -0.0735000000,0,,2

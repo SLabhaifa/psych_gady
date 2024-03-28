@@ -12,7 +12,7 @@ source(here("repeat_list.R"))
 source(here("make_plots.R"))
 source(here("load_thresholds.R"))
 source(here("load_thresholds_fmri.R"))
-#source(here("repeat_jnd.R"))
+source(here("repeat_jnd.R"))
 
 
 sub_folder_name<-gsub(" ","",paste("sub_",sub_n))
@@ -69,9 +69,7 @@ doAgain_f<-paste0("doAgain_values_sub_",sub_n,".csv")
 if (file.exists(here("output_matlab",doAgain_f))){
   doAgain<-import(here("output_matlab",doAgain_f),header=TRUE, stringsAsFactors = TRUE);
   repeat_list(folder_names,sub_n,attempt,doAgain,experiment_folder_path)
-  cat('\n','                                                \033[1;31m !!! Bad fits were found !!! \033[0m','\n')
-  cat('\n','                                        \033[1;31m !!! Run the repeat file and try again !!! \033[0m','\n')
-} else {cat('\n','No repeats needed','\n')}
+  }
 
 cat('\n','* * * * * * * * * * * * * * * * * * * * * * * * * * * * * The End * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *','\n')
 }

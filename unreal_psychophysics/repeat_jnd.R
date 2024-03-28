@@ -1,10 +1,10 @@
-repeat_jnd<-function(study=readline("Study folder name:"),sub_n = readline("Subject number:"),attempt= readline(prompt = "Fitting attempt number:")){
+repeat_jnd<-function(sub_n = readline("Subject number:"),study=readline("Study folder name:"),attempt= readline(prompt = "Fitting attempt number:")){
   
 #{study_number,attempt}
 #you need to run the function and it will prompt you with these questions
 #attempt<-1;
 #sub_n<-003;
-  ``
+  cat("Make sure there is a repeat file and an answers file in the folder or repeat_jnd wont work")
 library(data.table) 
 library(ggplot2) 
 library(dplyr)
@@ -20,13 +20,13 @@ sub_folder_name<-paste0("sub_",sub_n)
   
 #load the answers csv of the repeated staircases
 repeat_file<-list.files(here("Studies",study,sub_folder_name), pattern=glob2rx("*repeat*.csv"))[1];
-repeat_data<-import(here("Studies",study,sub_folder_name,repeat_file))
+repeat_data<-try(import(here("Studies",study,sub_folder_name,repeat_file)),silent=TRUE)
 
 unlink(here("Studies",study,sub_folder_name,repeat_file))
 
 #load the previous attempt csv (there should be only one attempt file in the folder)
 previous_attempt_file<-list.files(here("Studies",study,sub_folder_name), pattern=glob2rx("Answers*.csv"))[1];
-previous_attempt_data<-import(here("Studies",study,sub_folder_name,previous_attempt_file))
+previous_attempt_data<-try(import(here("Studies",study,sub_folder_name,previous_attempt_file)),silent=TRUE)
 unlink(here("Studies",study,sub_folder_name,previous_attempt_file))
 
 #make a unique vector of the condition codes used in the repeat TrialNumber column
@@ -58,7 +58,7 @@ filename<-gsub(" ","",paste(previous_attempt_file,"_",as.character(attempt),"_.c
 export(previous_attempt_plus_repeat,here("Studies",study,sub_folder_name,filename),col.names=TRUE)
 
 source(here("run_unreal_psy.R"))
- run_unreal_psy()
+ run_unreal_psy(sub_n=sub_n,study=study,attempt=attempt)
 }
 
-#save(repeat_jnd, file = 'C:\\Users\\User\\OneDrive\\Desktop\\unreal_psychophysics\\rdas\\repeat_jnd.rda')
+
